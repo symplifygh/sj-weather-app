@@ -1,6 +1,9 @@
 name: Get Weather
 
 on:
+    push:
+        branches:
+            - main
     workflow_dispatch:
 
 jobs:

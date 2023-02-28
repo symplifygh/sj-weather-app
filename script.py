@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
 
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
@@ -10,6 +11,7 @@ HTML_TEMPLATE = '''
 </head>
 <body>
     <h1>Temperature: {}</h1>
+    <h6>Updated at: {}</h6>
 </body>
 </html>
 '''
@@ -23,7 +25,6 @@ if response.status_code == 200:
     temperature = spans[0].string
     # breakpoint()
     with open("index.html", "w", encoding="utf-8") as f:
-        f.write(HTML_TEMPLATE.format(temperature))
-    
+        f.write(HTML_TEMPLATE.format(temperature, datetime.datetime.now()))
 else:
     print("Request Failed")
