@@ -15,7 +15,7 @@ HTML_TEMPLATE = '''
 '''
 
 
-response = requests.get("https://weather.com/en-IN/weather/today/l/7df684d64bef23f80b45fb8005de7a411d1fde0976ef68d6957ea74b18b54bad")
+response = requests.get("https://weather.com/en-IN/weather/today/l/dae948ef8d2a2af0eb0f8a324707e94e27ac445550ccbd9d75a3f98f9d765371")
 
 if response.status_code == 200:
     soup = BeautifulSoup(response.content, "html.parser")
