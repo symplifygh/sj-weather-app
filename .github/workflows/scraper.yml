@@ -1,0 +1,21 @@
+name: Get Weather
+
+on:
+    workflow_dispatch:
+
+jobs:
+    scrapeweather:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+            - run: pip install requests beautifulsoup4
+            - run: python script.py
+            - run: |
+                  git config --global user.email "symplifyinstructors@gmail.com"
+                  git config --global user.name "symplifygh"
+                  git add .
+                  git commit -m "Automated Update"
+                  git push
